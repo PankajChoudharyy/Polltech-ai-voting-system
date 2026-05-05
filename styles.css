@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 220 25% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 8%;
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 25% 20%;
+    --muted: 220 15% 94%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 262 80% 58%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 217 91% 50%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --chart-1: 217 91% 50%;
+    --chart-2: 262 80% 58%;
+    --chart-3: 142 71% 45%;
+    --chart-4: 38 92% 50%;
+    --chart-5: 0 72% 51%;
+    --radius: 0.625rem;
+    --shadow-2xs: 0 1px 2px 0 hsl(220 25% 8% / 0.04);
+    --shadow-xs: 0 1px 3px 0 hsl(220 25% 8% / 0.06);
+    --shadow-sm: 0 2px 4px 0 hsl(220 25% 8% / 0.08), 0 1px 2px -1px hsl(220 25% 8% / 0.06);
+    --shadow-md: 0 4px 8px 0 hsl(220 25% 8% / 0.1), 0 2px 4px -2px hsl(220 25% 8% / 0.08);
+    --shadow-lg: 0 8px 16px 0 hsl(220 25% 8% / 0.1), 0 4px 8px -4px hsl(220 25% 8% / 0.08);
+    --shadow-xl: 0 16px 32px 0 hsl(220 25% 8% / 0.12), 0 8px 16px -8px hsl(220 25% 8% / 0.1);
+    --shadow-2xl: 0 24px 48px 0 hsl(220 25% 8% / 0.16);
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 220 15% 94%;
+    --card: 220 22% 12%;
+    --card-foreground: 220 15% 94%;
+    --popover: 220 22% 12%;
+    --popover-foreground: 220 15% 94%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 18%;
+    --secondary-foreground: 220 15% 80%;
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 262 80% 65%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 20% 20%;
+    --input: 220 20% 20%;
+    --ring: 217 91% 60%;
+    --destructive: 0 72% 60%;
+    --destructive-foreground: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(217 91% 50%) 0%, hsl(262 80% 58%) 100%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(217 91% 50%) 0%, hsl(262 80% 58%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass {
+    background: hsl(0 0% 100% / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-dark {
+    background: hsl(220 25% 8% / 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .scan-line {
+    animation: scanLine 2s linear infinite;
+  }
+
+  @keyframes scanLine {
+    0% { top: 0%; }
+    100% { top: 100%; }
+  }
+
+  .face-scan-ring {
+    animation: faceScanRing 2s ease-in-out infinite;
+  }
+
+  @keyframes faceScanRing {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(217 91% 50% / 0.4); }
+    50% { box-shadow: 0 0 0 12px hsl(217 91% 50% / 0); }
+  }
+
+  .vote-card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .vote-card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px hsl(217 91% 50% / 0.15);
+  }
+
+  .selected-candidate {
+    border-color: hsl(217 91% 50%);
+    box-shadow: 0 0 0 3px hsl(217 91% 50% / 0.2), 0 20px 40px hsl(217 91% 50% / 0.15);
+  }
+}
