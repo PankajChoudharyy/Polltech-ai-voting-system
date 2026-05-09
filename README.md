@@ -14,7 +14,7 @@ An AI-based secure voting system with face authentication, role-based access, an
 
 * React + TypeScript
 * Vite
-* Supabase (Backend & Auth)
+* Supabase  (Backend & Auth)
 * Tailwind CSS
 
 ## 📦 Installation
